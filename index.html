@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторні</title>
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+    <header class="header">
+        <h1>Застосунок магазину брендового одягу</h1>
+        <div class="student-info">
+            <p>Студент: ІС-32 Резнік Дмитро</p>
+            <img src="images/photo_2024-10-31_02-05-22.jpg" alt="Фото">
+        </div>
+    </header>
+
+    
+        <button class="button" onclick="showLabaButtons(1)">Лабораторна робота №1</button>
+        <button class="button" onclick="showLabaButtons(2)">Лабораторна робота №2</button>
+        <button class="button" onclick="showLabaButtons(3)">Лабораторна робота №3</button>
+        <button class="button" onclick="showLabaButtons(4)">Лабораторна робота №4</button>
+        <button class="button" onclick="showLabaButtons(5)">Лабораторна робота №5</button>
+        <button class="button" onclick="showLabaButtons(6)">Лабораторна робота №6</button>
+        <button class="button" onclick="showLabaButtons(7)">Лабораторна робота №7</button>
+        <button class="button" onclick="showLabaButtons(8)">Лабораторна робота №8</button>
+        <button class="button" onclick="showLabaButtons(9)">Лабораторна робота №9</button>
+   
+    <div class="container">
+		<div class="left-menu" id="dynamic-buttons">
+            <button onclick="loadContent('./laba1/1.1.html')">Опис </button>
+              <button onclick="loadContent('./laba1/1.2.html')">HTML-код таблиць</button>
+              <button onclick="loadContent('./laba1/1.3.html')">HTML-код списку</button>
+              <button onclick="loadContent('./laba1/1.4.html')">HTML-код зображення</button>
+              <button onclick="loadContent('./laba1/1.5.html')">Структура</button>
+              <button onclick="loadContent('./laba1/1.6.html')">Висновки</button>
+            </div>
+      
+            <div class="right-content" id="content">
+              <h2>Натисніть на кнопку для подальших дій</h2>
+    
+            </div>
+          </div>
+      
+          <script>
+            
+            function loadContent(filename) {
+              fetch(filename)
+                .then((response) => response.text())
+                .then((data) => {
+                  document.getElementById("content").innerHTML = data;
+                })
+                .catch((error) => {
+                  document.getElementById("content").innerHTML =
+                    "Помилка завантаження.";
+                });
+            }
+      
+            
+            function showLabaButtons(labaNumber) {
+              const buttonContainer = document.getElementById('dynamic-buttons');
+      
+              if (labaNumber === 1) {
+                buttonContainer.innerHTML = `
+                  <button onclick="loadContent('./laba1/1.1.html')">Опис </button>
+              <button onclick="loadContent('./laba1/1.2.html')">HTML-код таблиць</button>
+              <button onclick="loadContent('./laba1/1.3.html')">HTML-код списку</button>
+              <button onclick="loadContent('./laba1/1.4.html')">HTML-код зображення</button>
+                <button onclick="loadContent('./laba1/1.5.html')">Структура </button>
+              <button onclick="loadontent('./laba1/1.6.html')">Висновки</button>
+                `;
+              }  else {
+                buttonContainer.innerHTML = `<p>Лабораторна робота №${labaNumber} ще не підготовлена.</p>`;
+              }
+            }
+          </script>
+
+</body>
+</html>
